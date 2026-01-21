@@ -7,7 +7,7 @@ public class ReportGeneratorImpl implements ReportGenerator {
     @Override
     public String makeReport() {
         StringBuilder builder = new StringBuilder("fruit,quantity");
-        for(Map.Entry<String, Integer> entry : FruitDao.fruitsStorage.entrySet()) {
+        for (Map.Entry<String, Integer> entry : FruitDao.fruitsStorage.entrySet()) {
             builder.append(System.lineSeparator())
                     .append(entry.getKey())
                     .append(",")

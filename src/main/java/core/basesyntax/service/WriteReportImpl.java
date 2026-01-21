@@ -9,7 +9,7 @@ public class WriteReportImpl implements WriteReport {
     public void writeReport(String report, String filePath) {
         try {
             Files.write(Path.of(filePath), report.getBytes());
-        } catch(IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException("Can`t write to file: " + filePath, e);
         }
     }
