@@ -1,8 +1,8 @@
 package core.basesyntax.service;
 
-import core.basesyntax.dao.FruitDao;
 import core.basesyntax.model.FruitTransaction;
 import core.basesyntax.strategy.OperationStrategy;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -19,12 +19,17 @@ public class FruitShopServiceImpl implements FruitShopService {
             throw new RuntimeException("Transaction cannot be null");
         }
 
-        Map<String, Integer> storage = FruitDao.getFruitsStorage();
+        Map<String, Integer> storage = new HashMap<>();
 
-        transactions.stream()
-                .forEach(transaction -> operationStrategy
-                        .get(transaction.getOperation())
-                        .handle(transaction, storage));
+        for (FruitTransaction transaction : transactions) {
+            if (transaction.getOperation() == null) {
+                throw new RuntimeException("Operation cannot be null");
+            }
+
+            operationStrategy.get(transaction.getOperation())
+                    .handle(transaction, storage);
+        }
+
         return storage;
     }
 }

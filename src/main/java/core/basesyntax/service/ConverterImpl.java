@@ -29,7 +29,7 @@ public class ConverterImpl implements Converter {
                         transaction.setQuantity(quantity);
                         return transaction;
                     } catch (NumberFormatException | IndexOutOfBoundsException e) {
-                        throw new RuntimeException("Error while converting data lines");
+                        throw new RuntimeException("Error while converting data line " + line, e);
                     }
                 })
                 .collect(Collectors.toList());
