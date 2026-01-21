@@ -1,6 +1,5 @@
 package core.basesyntax.strategy;
 
-import core.basesyntax.dao.FruitDao;
 import core.basesyntax.model.FruitTransaction;
 import java.util.Map;
 
