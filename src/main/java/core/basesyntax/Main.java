@@ -41,9 +41,10 @@ public class Main {
 
         List<String> lines = fileReader.readReport("reportToRead.csv");
         List<FruitTransaction> transactions = converter.convert(lines);
-        fruitShopService.process(transactions);
 
-        String report = reportGenerator.makeReport();
+        Map<String, Integer> result = fruitShopService.process(transactions);
+
+        String report = reportGenerator.makeReport(result);
         writeReport.writeReport(report, "finalReport.csv");
     }
 }
