@@ -9,6 +9,7 @@ public class OperationStrategyImpl implements OperationStrategy {
     public OperationStrategyImpl(Map<FruitTransaction.Operation, OperationHandler> operationMap) {
         this.operationMap = operationMap;
     }
+
     @Override
     public OperationHandler get(FruitTransaction.Operation operation) {
         return operationMap.get(operation);
