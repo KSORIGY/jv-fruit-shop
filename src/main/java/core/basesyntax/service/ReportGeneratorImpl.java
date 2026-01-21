@@ -5,9 +5,9 @@ import java.util.Map;
 
 public class ReportGeneratorImpl implements ReportGenerator {
     @Override
-    public String makeReport() {
+    public String makeReport(Map<String, Integer> data) {
         StringBuilder builder = new StringBuilder("fruit,quantity");
-        for (Map.Entry<String, Integer> entry : FruitDao.getFruitsStorage().entrySet()) {
+        for (Map.Entry<String, Integer> entry : data.entrySet()) {
             builder.append(System.lineSeparator())
                     .append(entry.getKey())
                     .append(",")

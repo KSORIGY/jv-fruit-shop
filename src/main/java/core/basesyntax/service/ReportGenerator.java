@@ -1,5 +1,7 @@
 package core.basesyntax.service;
 
+import java.util.Map;
+
 public interface ReportGenerator {
-    String makeReport();
+    String makeReport(Map<String, Integer> data);
 }

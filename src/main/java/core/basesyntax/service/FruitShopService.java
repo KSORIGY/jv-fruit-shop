@@ -2,7 +2,8 @@ package core.basesyntax.service;
 
 import core.basesyntax.model.FruitTransaction;
 import java.util.List;
+import java.util.Map;
 
 public interface FruitShopService {
-    void process(List<FruitTransaction> transaction);
+    Map<String, Integer> process(List<FruitTransaction> transaction);
 }
